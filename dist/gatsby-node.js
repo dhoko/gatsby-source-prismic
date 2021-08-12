@@ -704,8 +704,9 @@ var require_utf7 = __commonJS({
     }
     var base64Regex = /[A-Za-z0-9\/+]/;
     var base64Chars = [];
-    for (var i = 0; i < 256; i++)
+    for (i = 0; i < 256; i++)
       base64Chars[i] = base64Regex.test(String.fromCharCode(i));
+    var i;
     var plusChar = "+".charCodeAt(0);
     var minusChar = "-".charCodeAt(0);
     var andChar = "&".charCodeAt(0);
@@ -1547,8 +1548,9 @@ var require_dbcs_codec = __commonJS({
     var NODE_START = -1e3;
     var UNASSIGNED_NODE = new Array(256);
     var DEF_CHAR = -1;
-    for (var i = 0; i < 256; i++)
+    for (i = 0; i < 256; i++)
       UNASSIGNED_NODE[i] = UNASSIGNED;
+    var i;
     function DBCSCodec(codecOptions, iconv) {
       this.encodingName = codecOptions.encodingName;
       if (!codecOptions)
@@ -3392,7 +3394,7 @@ var require_encodings = __commonJS({
       require_dbcs_codec(),
       require_dbcs_data()
     ];
-    for (var i = 0; i < modules.length; i++) {
+    for (i = 0; i < modules.length; i++) {
       module2 = modules[i];
       for (enc in module2)
         if (Object.prototype.hasOwnProperty.call(module2, enc))
@@ -3400,6 +3402,7 @@ var require_encodings = __commonJS({
     }
     var module2;
     var enc;
+    var i;
   }
 });
 
@@ -5504,7 +5507,8 @@ var externalValidationProgram = (Joi) => (0, import_function41.pipe)(RTE45.ask()
   var _a;
   return RTE45.right(prismic2.createClient((_a = deps.pluginOptions.apiEndpoint) != null ? _a : prismic2.getEndpoint(deps.pluginOptions.repositoryName), {
     fetch: import_node_fetch2.default,
-    accessToken: deps.pluginOptions.accessToken
+    accessToken: deps.pluginOptions.accessToken,
+    httpOptions: deps.pluginOptions.httpOptions
   }));
 }), RTE45.chainFirst((scope) => RTE45.fromIO(() => {
   if (scope.pluginOptions.releaseID) {
