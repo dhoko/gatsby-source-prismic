@@ -5392,12 +5392,15 @@ var prismic = __toModule(require("@prismicio/client"));
 var import_node_fetch = __toModule(require_lib2());
 var import_gatsby_node_helpers = __toModule(require("gatsby-node-helpers"));
 var buildDependencies = (gatsbyContext, pluginOptions) => {
-  var _a, _b, _c;
+  var _a, _b, _c, _d, _e;
   const prismicEndpoint = (_a = pluginOptions.apiEndpoint) != null ? _a : prismic.getEndpoint(pluginOptions.repositoryName);
+  const httpOptions = __spreadValues({}, ((_c = (_b = pluginOptions == null ? void 0 : pluginOptions.httpOptions) == null ? void 0 : _b.agent) == null ? void 0 : _c.http) && {
+    agent: (_e = (_d = pluginOptions == null ? void 0 : pluginOptions.httpOptions) == null ? void 0 : _d.agent) == null ? void 0 : _e.http
+  });
   const prismicClient = prismic.createClient(prismicEndpoint, {
     fetch: import_node_fetch.default,
     accessToken: pluginOptions.accessToken,
-    httpOptions: (_c = (_b = pluginOptions == null ? void 0 : pluginOptions.httpOptions) == null ? void 0 : _b.agent) == null ? void 0 : _c.http,
+    httpOptions,
     defaultParams: {
       lang: pluginOptions.lang,
       fetchLinks: pluginOptions.fetchLinks,
