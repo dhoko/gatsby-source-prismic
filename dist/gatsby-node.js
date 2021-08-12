@@ -5397,7 +5397,7 @@ var buildDependencies = (gatsbyContext, pluginOptions) => {
   const prismicClient = prismic.createClient(prismicEndpoint, {
     fetch: import_node_fetch.default,
     accessToken: pluginOptions.accessToken,
-    htttpOptions: (_c = (_b = pluginOptions == null ? void 0 : pluginOptions.htttpOptions) == null ? void 0 : _b.agent) == null ? void 0 : _c.http,
+    httpOptions: (_c = (_b = pluginOptions == null ? void 0 : pluginOptions.httpOptions) == null ? void 0 : _b.agent) == null ? void 0 : _c.http,
     defaultParams: {
       lang: pluginOptions.lang,
       fetchLinks: pluginOptions.fetchLinks,
